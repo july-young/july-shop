@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 public class BaseResponse<T> {
 
-	private Integer rtnCode;
+	private Integer code;
 	private String msg;
 	private T data;
 
@@ -17,9 +17,9 @@ public class BaseResponse<T> {
 
 	}
 
-	public BaseResponse(Integer rtnCode, String msg, T data) {
+	public BaseResponse(Integer code, String msg, T data) {
 		super();
-		this.rtnCode = rtnCode;
+		this.code = code;
 		this.msg = msg;
 		this.data = data;
 	}

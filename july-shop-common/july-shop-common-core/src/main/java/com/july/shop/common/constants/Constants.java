@@ -4,6 +4,7 @@ package com.july.shop.common.constants;
  * @author july
  * @description:返回Code 统一常量信息
  */
+
 public interface Constants {
 	// 响应请求成功
 	String HTTP_RES_CODE_200_VALUE = "success";
@@ -24,9 +25,11 @@ public interface Constants {
 	int COOKIE_TOKEN_MEMBER_TIME = (60 * 60 * 24 * 90);
 	// cookie 会员 totoken 名称
 	String COOKIE_MEMBER_TOKEN = "cookie_member_token";
-	// 微信code
+	// 微信注册码存放rediskey
 	String WEIXINCODE_KEY = "weixin.code";
 	// 微信注册码有效期30分钟
 	Long WEIXINCODE_TIMEOUT = 1800L;
 
+	// 用户信息不存在
+	Integer HTTP_RES_CODE_EXISTMOBILE_203 = 203;
 }

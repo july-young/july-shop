@@ -1,4 +1,4 @@
-package com.july.shop.api.entity;
+package com.july.shop.api.weixin.entity;
 
 import lombok.Data;
 

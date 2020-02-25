@@ -1,5 +1,6 @@
 package com.july.shop.member;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -18,6 +19,7 @@ import com.spring4all.swagger.EnableSwagger2Doc;
 @EnableFeignClients
 @EnableSwagger2Doc
 @EnableApolloConfig
+@MapperScan(basePackages = "com.july.shop.member.mapper")
 public class AppMember {
 
     public static void main(String[] args) {

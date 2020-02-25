@@ -1,8 +1,11 @@
 package com.july.shop.weixin.mp.handler;
 
+import com.july.shop.api.member.entity.UserEntity;
+import com.july.shop.common.base.entity.BaseResponse;
 import com.july.shop.common.constants.Constants;
 import com.july.shop.common.utils.RedisUtil;
 import com.july.shop.common.utils.RegexUtils;
+import com.july.shop.weixin.feign.MemberServiceFeign;
 import com.july.shop.weixin.mp.builder.TextBuilder;
 import me.chanjar.weixin.common.api.WxConsts.XmlMsgType;
 import me.chanjar.weixin.common.error.WxErrorException;
@@ -36,9 +39,12 @@ public class MsgHandler extends AbstractHandler {
 	@Autowired
 	private RedisUtil redisUtil;
 
+	@Autowired
+	private MemberServiceFeign memberServiceFeign;
+
 	@Override
 	public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage, Map<String, Object> context, WxMpService weixinService,
-			WxSessionManager sessionManager) {
+									WxSessionManager sessionManager) {
 
 		if (!wxMessage.getMsgType().equals(XmlMsgType.EVENT)) {
 			// TODO 可以选择将消息保存到本地
@@ -54,18 +60,28 @@ public class MsgHandler extends AbstractHandler {
 		} catch (WxErrorException e) {
 			e.printStackTrace();
 		}
-		// 1.获取客户端发送的消息
+		// 1. 获取微信客户端发送的消息
 		String fromContent = wxMessage.getContent();
-		// 2.如果客户端发送消息为手机号码，则发送验证码
+		// 2.使用正则表达式验证消息是否为手机号码格式
 		if (RegexUtils.checkMobile(fromContent)) {
-			// 3.生成随机四位注册码
+			// 1.根据手机号码调用会员服务接口查询用户信息是否存在
+			BaseResponse<UserEntity> reusltUserInfo = memberServiceFeign.existMobile(fromContent);
+			if (Constants.HTTP_RES_CODE_200.equals(reusltUserInfo.getCode())) {
+				return new TextBuilder().build("该手机号码" + fromContent + "已经存在!", wxMessage, weixinService);
+			}
+			if (!Constants.HTTP_RES_CODE_EXISTMOBILE_203.equals(reusltUserInfo.getCode())) {
+				return new TextBuilder().build(reusltUserInfo.getMsg(), wxMessage, weixinService);
+			}
+			// 3.如果是手机号码格式的话,随机生产4位数字注册码
 			int registCode = registCode();
 			String content = String.format(registrationCodeMessage, registCode);
-			// 4.将验证码存放在Redis中
+			// 将注册码存入在redis中 key为手机号码
 			redisUtil.setString(Constants.WEIXINCODE_KEY + fromContent, registCode + "", Constants.WEIXINCODE_TIMEOUT);
 			return new TextBuilder().build(content, wxMessage, weixinService);
 		}
+		// 否则情况下返回默认消息 调用第三方机器人接口
 		return new TextBuilder().build(defaultRegistrationCodeMessage, wxMessage, weixinService);
+
 	}
 
 	// 获取注册码

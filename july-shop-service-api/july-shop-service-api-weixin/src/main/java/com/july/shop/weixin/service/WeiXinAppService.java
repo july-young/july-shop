@@ -1,6 +1,6 @@
 package com.july.shop.weixin.service;
 
-import com.july.shop.api.entity.AppEntity;
+import com.july.shop.api.weixin.entity.AppEntity;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;

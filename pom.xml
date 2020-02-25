@@ -14,6 +14,8 @@
         <module>july-shop-common</module>
         <module>july-shop-portal</module>
         <module>july-shop-service-impl</module>
+        <module>third-part-service-weixin</module>
+        <module>july-shop-api-entitys</module>
     </modules>
 
     <parent>

@@ -11,6 +11,10 @@
 
     <groupId>com.july.shop</groupId>
     <artifactId>july-shop-common</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>july-shop-common-core</module>
+    </modules>
 
 
 </project>

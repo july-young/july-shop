@@ -1,6 +1,6 @@
 package com.july.shop.weixin.service.impl;
 
-import com.july.shop.weixin.entity.AppEntity;
+import com.july.shop.api.entity.AppEntity;
 import com.july.shop.weixin.service.WeiXinAppService;
 import org.springframework.web.bind.annotation.RestController;
 

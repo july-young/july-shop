@@ -6,6 +6,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import com.spring4all.swagger.EnableSwagger2Doc;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author: july
@@ -16,6 +17,7 @@ import com.spring4all.swagger.EnableSwagger2Doc;
 @EnableEurekaClient
 @EnableSwagger2Doc
 @EnableApolloConfig
+@ComponentScan(value = {"com.july.shop.common","com.july.shop.weixin"})
 public class AppWeixin {
 
     public static void main(String[] args) {

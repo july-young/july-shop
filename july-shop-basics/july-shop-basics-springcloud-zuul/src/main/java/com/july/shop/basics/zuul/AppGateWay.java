@@ -30,9 +30,7 @@ import springfox.documentation.swagger.web.SwaggerResourcesProvider;
 @EnableSwagger2Doc
 @EnableApolloConfig
 public class AppGateWay {
-    //
-    // @ApolloConfig
-    // private Config config;
+
     @Value("${july.zuul.swagger.document}")
     private String document;
 
@@ -41,6 +39,7 @@ public class AppGateWay {
     }
 
     // 添加文档来源
+    // 微服务网关Swagger 如何集成阿波罗 实现动态添加微服务Swagger文档
     @Component
     @Primary
     class DocumentationConfig implements SwaggerResourcesProvider {
@@ -75,14 +74,5 @@ public class AppGateWay {
         }
 
     }
-    // 微服务网关Swagger 如何集成阿波罗 实现动态添加微服务Swagger文档
-
-    /**
-     * 大体思路分析：<br>
-     * 1.将swaggerResource封装程json数组格式、<br>
-     * 2.使用原生代码方式获取配置文件 3.写一个监听，监听文件是否发生变化，发生变化重新加载值 递归算法
-     * 4.july.zuul.swagger.document=
-     *
-     */
 
 }

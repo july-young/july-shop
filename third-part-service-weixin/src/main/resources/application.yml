@@ -1,0 +1,13 @@
+logging:
+  level:
+    org.springframework.web: INFO
+    com.github.binarywang.demo.wx.mp: DEBUG
+    me.chanjar.weixin: DEBUG
+wx:
+  mp:
+    configs:
+      - appId: wx950f504b931484e5 #（一个公众号的appid）
+        secret: 45141bfb8ddbc280b3d85354f7dad5dd #（公众号的appsecret）
+        token: julyyoung #（接口配置里的Token值）
+server:
+  port: 80

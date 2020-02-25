@@ -1,8 +1,8 @@
 package com.july.shop.member.service.impl;
 
+import com.july.shop.api.entity.AppEntity;
 import com.july.shop.api.member.MemberService;
 import com.july.shop.member.feign.WeiXinAppServiceFeign;
-import com.july.shop.weixin.entity.AppEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 

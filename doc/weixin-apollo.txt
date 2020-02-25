@@ -1,0 +1,10 @@
+server.port = 8200
+spring.application.name = app-july-weixin
+eureka.client.service-url.defaultZone = http://192.168.124.131:8080/eureka
+swagger.base-package = com.july.weixin.service
+swagger.title = SpringCloud2.x构建微服务电商项目-微信服务接口
+swagger.description = july的联系项目
+swagger.version = 1.1
+swagger.terms-of-service-url = www.julyyoung.com
+swagger.contact.name = julyyoung
+swagger.contact.email = 1103225671@qq.com

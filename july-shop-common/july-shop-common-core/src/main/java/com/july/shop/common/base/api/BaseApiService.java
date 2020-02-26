@@ -25,7 +25,7 @@ public class BaseApiService<T> {
 	}
 
 	// 返回成功，可以传data值
-	public BaseResponse<T> setResultSuccess(Object data) {
+	public BaseResponse<T> setResultSuccess(T data) {
 		return setResult(Constants.HTTP_RES_CODE_200, Constants.HTTP_RES_CODE_200_VALUE, data);
 	}
 
@@ -40,8 +40,13 @@ public class BaseApiService<T> {
 	}
 
 	// 通用封装
-	public BaseResponse<T> setResult(Integer code, String msg, Object data) {
-		return new BaseResponse(code, msg, data);
+	public BaseResponse<T> setResult(Integer code, String msg, T data) {
+		return new BaseResponse<T>(code, msg, data);
+	}
+
+	// 调用数据库层判断
+	public Boolean toDaoResult(int result) {
+		return result > 0 ? true : false;
 	}
 
 }

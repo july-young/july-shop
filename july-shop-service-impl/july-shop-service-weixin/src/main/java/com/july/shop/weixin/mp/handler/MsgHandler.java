@@ -1,6 +1,7 @@
 package com.july.shop.weixin.mp.handler;
 
-import com.july.shop.api.member.entity.UserEntity;
+import com.july.shop.api.dto.member.output.UserOutDTO;
+import com.july.shop.api.member.entity.UserDo;
 import com.july.shop.common.base.entity.BaseResponse;
 import com.july.shop.common.constants.Constants;
 import com.july.shop.common.utils.RedisUtil;
@@ -65,7 +66,7 @@ public class MsgHandler extends AbstractHandler {
 		// 2.使用正则表达式验证消息是否为手机号码格式
 		if (RegexUtils.checkMobile(fromContent)) {
 			// 1.根据手机号码调用会员服务接口查询用户信息是否存在
-			BaseResponse<UserEntity> reusltUserInfo = memberServiceFeign.existMobile(fromContent);
+			BaseResponse<UserOutDTO> reusltUserInfo = memberServiceFeign.existMobile(fromContent);
 			if (Constants.HTTP_RES_CODE_200.equals(reusltUserInfo.getCode())) {
 				return new TextBuilder().build("该手机号码" + fromContent + "已经存在!", wxMessage, weixinService);
 			}

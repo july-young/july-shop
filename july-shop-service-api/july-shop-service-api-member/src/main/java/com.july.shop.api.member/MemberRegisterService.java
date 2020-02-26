@@ -1,7 +1,7 @@
 package com.july.shop.api.member;
 
 import com.alibaba.fastjson.JSONObject;
-import com.july.shop.api.member.entity.UserEntity;
+import com.july.shop.api.dto.member.input.UserInpDTO;
 import com.july.shop.common.base.entity.BaseResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -19,12 +19,12 @@ public interface MemberRegisterService {
     /**
      * 用户注册接口
      *
-     * @param userEntity
+     * @param userInpDTO
      * @return
      */
     @PostMapping("/register")
     @ApiOperation(value = "会员用户注册信息接口")
-    BaseResponse<JSONObject> register(@RequestBody UserEntity userEntity,
+    BaseResponse<JSONObject> register(@RequestBody UserInpDTO userInpDTO,
                                       @RequestParam("registCode") String registCode);
 
 }

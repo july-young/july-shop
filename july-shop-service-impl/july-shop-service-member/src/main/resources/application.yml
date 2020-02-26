@@ -4,6 +4,10 @@ spring:
     username: root
     password: 1234
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://47.91.214.23:3306/july_shop
+    url: jdbc:mysql://47.91.214.23:3306/july_shop?useUnicode=true&characterEncoding=UTF-8
 
-  
+####打印MyBatias日志
+logging:
+  level:
+  ### 开发环境使用DEBUG 生产环境info或者error
+   com.july.shop.member.mapper: DEBUG

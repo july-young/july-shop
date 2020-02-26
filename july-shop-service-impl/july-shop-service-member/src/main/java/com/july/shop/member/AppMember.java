@@ -8,6 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import com.spring4all.swagger.EnableSwagger2Doc;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author: july
@@ -19,7 +20,8 @@ import com.spring4all.swagger.EnableSwagger2Doc;
 @EnableFeignClients
 @EnableSwagger2Doc
 @EnableApolloConfig
-@MapperScan(basePackages = "com.july.shop.member.mapper")
+@ComponentScan({"com.july.shop.member","com.july.shop.common"})
+@MapperScan(basePackages = {"com.july.shop.member.mapper"})
 public class AppMember {
 
     public static void main(String[] args) {

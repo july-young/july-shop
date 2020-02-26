@@ -9,7 +9,7 @@ public interface Constants {
 	// 响应请求成功
 	String HTTP_RES_CODE_200_VALUE = "success";
 	// 系统错误
-	String HTTP_RES_CODE_500_VALUE = "fial";
+	String HTTP_RES_CODE_500_VALUE = "fail";
 	// 响应请求成功code
 	Integer HTTP_RES_CODE_200 = 200;
 	// 系统错误
@@ -32,4 +32,19 @@ public interface Constants {
 
 	// 用户信息不存在
 	Integer HTTP_RES_CODE_EXISTMOBILE_203 = 203;
+
+	// token
+	String MEMBER_TOKEN_KEYPREFIX = "july.mb.login";
+
+	// 安卓的登陆类型
+	String MEMBER_LOGIN_TYPE_ANDROID = "Android";
+	// IOS的登陆类型
+	String MEMBER_LOGIN_TYPE_IOS = "IOS";
+
+	// PC的登陆类型
+	String MEMBER_LOGIN_TYPE_PC = "PC";
+
+	// 登陆超时时间 有效期 90天
+	Long MEMBRE_LOGIN_TOKEN_TIME = 77776000L;
+
 }

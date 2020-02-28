@@ -4,12 +4,11 @@ package com.july.shop.common.constants;
  * @author july
  * @description:返回Code 统一常量信息
  */
-
 public interface Constants {
 	// 响应请求成功
 	String HTTP_RES_CODE_200_VALUE = "success";
 	// 系统错误
-	String HTTP_RES_CODE_500_VALUE = "fail";
+	String HTTP_RES_CODE_500_VALUE = "fial";
 	// 响应请求成功code
 	Integer HTTP_RES_CODE_200 = 200;
 	// 系统错误
@@ -34,7 +33,7 @@ public interface Constants {
 	Integer HTTP_RES_CODE_EXISTMOBILE_203 = 203;
 
 	// token
-	String MEMBER_TOKEN_KEYPREFIX = "july.mb.login";
+	String MEMBER_TOKEN_KEYPREFIX = "mt.mb.login";
 
 	// 安卓的登陆类型
 	String MEMBER_LOGIN_TYPE_ANDROID = "Android";
@@ -46,5 +45,7 @@ public interface Constants {
 
 	// 登陆超时时间 有效期 90天
 	Long MEMBRE_LOGIN_TOKEN_TIME = 77776000L;
+	// 用户信息不存在
+	Integer HTTP_RES_CODE_NOTUSER_203 = 203;
 
 }

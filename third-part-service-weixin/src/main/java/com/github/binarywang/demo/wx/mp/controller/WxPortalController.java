@@ -3,6 +3,7 @@ package com.github.binarywang.demo.wx.mp.controller;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,11 +21,12 @@ import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage;
  * @author Binary Wang(https://github.com/binarywang)
  */
 @RestController
-@RequestMapping("/wx/portal/{appid}")
+@RequestMapping("wx/portal/{appid}")
 public class WxPortalController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @GetMapping(produces = "text/plain;charset=utf-8")
+    @RequestMapping()
+//    @RequestMapping(produces = "text/plain;charset=utf-8")
     public String authGet(@PathVariable String appid,
                           @RequestParam(name = "signature", required = false) String signature,
                           @RequestParam(name = "timestamp", required = false) String timestamp,
@@ -51,7 +53,7 @@ public class WxPortalController {
 
     @RequestMapping(produces = "application/xml; charset=UTF-8")
     public String post(@PathVariable String appid,
-                       @RequestBody String requestBody,
+                       @RequestParam String requestBody,
                        @RequestParam("signature") String signature,
                        @RequestParam("timestamp") String timestamp,
                        @RequestParam("nonce") String nonce,

@@ -15,6 +15,7 @@
     <modules>
         <module>july-shop-basics-springcloud-eureka</module>
         <module>july-shop-basics-springcloud-zuul</module>
+        <module>july-shop-basics-xxl-sso-server</module>
     </modules>
 
 

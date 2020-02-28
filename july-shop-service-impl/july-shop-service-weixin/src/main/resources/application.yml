@@ -1,0 +1,8 @@
+spring:
+###数据库相关连接
+  datasource:
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.91.214.23:3306/july_shop?useUnicode=true&characterEncoding=UTF-8
+

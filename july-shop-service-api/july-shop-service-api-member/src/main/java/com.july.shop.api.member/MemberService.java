@@ -1,6 +1,7 @@
 package com.july.shop.api.member;
 
 
+import com.july.shop.api.dto.member.input.UserLoginInpDTO;
 import com.july.shop.api.dto.member.output.UserOutDTO;
 import com.july.shop.common.base.entity.BaseResponse;
 import io.swagger.annotations.Api;
@@ -9,6 +10,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -40,4 +42,15 @@ public interface MemberService {
     @GetMapping("/getUserInfo")
     @ApiOperation(value = "根据token查询用户信息")
     BaseResponse<UserOutDTO> getInfo(@RequestParam("token") String token);
+
+
+    /**
+     * SSO认证系统登陆接口
+     *
+     * @param userLoginInpDTO
+     * @return
+     */
+    @PostMapping("/ssoLogin")
+    public BaseResponse<UserOutDTO> ssoLogin(@RequestBody UserLoginInpDTO userLoginInpDTO);
+
 }

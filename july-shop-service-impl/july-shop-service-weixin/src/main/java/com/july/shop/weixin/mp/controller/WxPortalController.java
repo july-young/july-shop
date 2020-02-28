@@ -4,13 +4,7 @@ import com.july.shop.weixin.mp.config.WxMpConfiguration;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
@@ -20,11 +14,12 @@ import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage;
  * @author Binary Wang(https://github.com/binarywang)
  */
 @RestController
-@RequestMapping("/wx/portal/{appid}")
+@RequestMapping("wx/portal/{appid}")
 public class WxPortalController {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@GetMapping(produces = "text/plain;charset=utf-8")
+	@RequestMapping(method = RequestMethod.GET)
+//    @RequestMapping(produces = "text/plain;charset=utf-8")
 	public String authGet(@PathVariable String appid,
 			@RequestParam(name = "signature", required = false) String signature,
 			@RequestParam(name = "timestamp", required = false) String timestamp,
@@ -48,7 +43,7 @@ public class WxPortalController {
 		return "非法请求";
 	}
 
-	@RequestMapping(produces = "application/xml; charset=UTF-8")
+	@RequestMapping(produces = "application/xml; charset=UTF-8",method = RequestMethod.POST)
 	public String post(@PathVariable String appid, @RequestBody String requestBody,
 			@RequestParam("signature") String signature, @RequestParam("timestamp") String timestamp,
 			@RequestParam("nonce") String nonce, @RequestParam("openid") String openid,

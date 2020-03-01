@@ -15,6 +15,7 @@
     <modules>
         <module>july-shop-service-member</module>
         <module>july-shop-service-weixin</module>
+        <module>july-shop-service-goods</module>
     </modules>
 
     <dependencies>

@@ -1,0 +1,37 @@
+###服务启动端口号
+server:
+  port: 8600
+###服务名称(服务注册到eureka名称)  
+eureka:
+  client:
+    service-url:
+#           defaultZone: http://192.168.124.132:8080/eureka
+           defaultZone: http://localhost:8080/eureka
+
+spring:
+  application:
+    name:  app-july-goods
+  redis:
+    host: 47.91.214.23
+    port: 6379
+    pool:
+      max-idle: 100
+      min-idle: 1
+      max-active: 1000
+      max-wait: -1
+###数据库相关连接      
+  datasource:
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.91.214.23:3306/july_shop?useUnicode=true&characterEncoding=UTF-
+  data:
+    elasticsearch:
+    ####集群名称
+     cluster-name: elasticsearch-cluster
+    ####地址 
+     cluster-nodes: 192.168.124.132:9300
+es:
+  host: 192.168.124.132
+  port: 9200
+  scheme: http

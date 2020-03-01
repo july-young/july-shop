@@ -16,7 +16,7 @@ spring:
 eureka:
   client:
     service-url:
-           defaultZone: http://192.168.124.131:8080/eureka
+           defaultZone: http://192.168.124.132:8080/eureka
 server:
 #  context-path: /xxl-sso-server
   port: 8500
